@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+
+body {
+  letter-spacing: 0.1em; /* adjust this value to taste */
+}
+
+html {
+  font-size: 14px; /* default browser size is 16px */
+}
