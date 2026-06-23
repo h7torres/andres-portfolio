@@ -4,7 +4,7 @@ import { projects } from "../data/projects";
 
 export default function WorkGrid() {
   return (
-    <div className="grid grid-cols-3 gap-4 px-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 sm:px-10">
       {projects.map((project) => (
         <Link to={`/works/${project.slug}/0`} key={project.slug} className="relative block">
           <img src={project.images[0].src} className="w-full h-full object-cover" />
