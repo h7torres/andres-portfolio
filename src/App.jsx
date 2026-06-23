@@ -1,12 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Bio from "./pages/Bio";
+import Landing from "./pages/Landing";
+import Works from "./pages/Works";
 import Navbar from "./components/Navbar";
-import WorkGrid from "./components/WorkGrid";
 import WorkDetail from "./pages/WorkDetail";
-
-function Home() {
-  return <WorkGrid />;
-}
 
 function Contact() {
   return (
@@ -28,7 +25,8 @@ function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/works" element={<Works />} />
         <Route path="/bio" element={<Bio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/works/:slug/:index" element={<WorkDetail />} />
