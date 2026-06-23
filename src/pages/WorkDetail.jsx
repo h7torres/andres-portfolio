@@ -11,6 +11,8 @@ export default function WorkDetail() {
   if (!project) return <div className="px-10">Project not found.</div>;
 
   const current = project.images[i];
+  const hasPrev = i > 0;
+  const hasNext = i < project.images.length - 1;
 
   const goTo = (newIndex) => {
     if (newIndex >= 0 && newIndex < project.images.length) {
@@ -20,8 +22,28 @@ export default function WorkDetail() {
 
   return (
     <div className="w-full flex flex-col items-center px-10">
-      <div className="relative w-full max-w-2xl mx-auto">
+      <div className="relative w-full max-w-2xl mx-auto group">
         <img src={current.src} className="w-full" loading="eager" decoding="async" />
+
+        {hasPrev && (
+          <button
+            onClick={() => goTo(i - 1)}
+            className="absolute left-2 top-1/2 -translate-y-1/2 text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors"
+            aria-label="Previous"
+          >
+            ‹
+          </button>
+        )}
+
+        {hasNext && (
+          <button
+            onClick={() => goTo(i + 1)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors"
+            aria-label="Next"
+          >
+            ›
+          </button>
+        )}
       </div>
 
       <div className="w-full max-w-2xl mx-auto">
@@ -33,23 +55,6 @@ export default function WorkDetail() {
           <p className="text-gray-500 font-mono mt-4 text-xs">{project.description}</p>
         )}
         <p className="text-gray-500 mb-4 font-mono mt-4 text-xs">{project.year}</p>
-
-        <div className="flex gap-2 text-blue-400 font-mono text-xs">
-          <button
-            onClick={() => goTo(i - 1)}
-            disabled={i === 0}
-            className="cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 hover:text-blue-300 transition-colors focus:outline-none"
-          >
-            ← Previous
-          </button>
-          <span>|</span>
-          <button
-            onClick={() => goTo(i + 1)}
-            disabled={i === project.images.length - 1}
-            className="cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 hover:text-blue-300 transition-colors focus:outline-none"          >
-            Next →
-          </button>
-        </div>
       </div>
     </div>
   );
