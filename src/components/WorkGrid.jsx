@@ -6,8 +6,16 @@ export default function WorkGrid() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 sm:px-10">
       {projects.map((project) => (
-        <Link to={`/works/${project.slug}/0`} key={project.slug} className="relative block">
-          <img src={project.images[0].src} className="w-full h-full object-cover" />
+        <Link
+          to={`/works/${project.slug}/0`}
+          key={project.slug}
+          className="relative block overflow-hidden"
+        >
+          <img
+            src={project.images[0].src}
+            className="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+            loading="lazy"
+          />
         </Link>
       ))}
     </div>
