@@ -6,18 +6,9 @@ export const projects = [
     description: "A triptych on the collision between Collectivism and Individualism.",
     year: "2025.",
     images: [
-      {
-        src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima.jpg`,
-        poem: "...",
-      },
-      {
-        src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima2.jpg`,
-        poem: "...",
-      },
-      {
-        src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima3.jpg`,
-        poem: "...",
-      },
+      { src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima.jpg` },
+      { src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima2.jpg` },
+      { src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima3.jpg` },
     ],
   },
 ];
