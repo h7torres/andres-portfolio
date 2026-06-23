@@ -16,7 +16,7 @@ export default function Navbar() {
 
       <div className="relative flex items-center">
         <div
-          className={`hidden md:flex items-center gap-6 text-lg text-black-400 mr-6 transition-all duration-300 ${
+          className={`hidden md:flex items-center gap-6 text-sm text-black-400 mr-6 transition-all duration-300 ${
             open
               ? "opacity-100 translate-x-0 pointer-events-auto"
               : "opacity-0 translate-x-4 pointer-events-none"
@@ -39,25 +39,21 @@ export default function Navbar() {
           aria-label="Menu"
         >
           <span
-            className="absolute bg-gray-400 transition-all duration-300"
+            className="absolute bg-gray-400 transition-all duration-300 ease-in-out"
             style={{
               width: open ? "2px" : "24px",
-              height: "2px",
-              top: open ? "1px" : "0px",
-              left: open ? "9px" : "0px",
-              transform: open ? "rotate(90deg) translateX(2px)" : "none",
-              transformOrigin: "center",
+              height: open ? "16px" : "2px",
+              top: open ? "0px" : "0px",
+              left: open ? "7px" : "0px",
             }}
           ></span>
           <span
-            className="absolute bg-gray-400 transition-all duration-300"
+            className="absolute bg-gray-400 transition-all duration-300 ease-in-out"
             style={{
               width: open ? "2px" : "24px",
-              height: "2px",
-              top: open ? "1px" : "14px",
-              left: open ? "9px" : "0px",
-              transform: open ? "rotate(90deg) translateX(-2px)" : "none",
-              transformOrigin: "center",
+              height: open ? "16px" : "2px",
+              top: open ? "0px" : "14px",
+              left: open ? "15px" : "0px",
             }}
           ></span>
         </button>
