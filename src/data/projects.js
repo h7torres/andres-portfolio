@@ -1,4 +1,3 @@
-// src/data/projects.js
 export const projects = [
   {
     slug: "nuestra-lagrima",
@@ -8,14 +7,16 @@ export const projects = [
     year: "2025.",
     images: [
       {
-        src: "/images/nuestra_lagrima/lagrima.jpg",
-        
+        src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima.jpg`,
+        poem: "...",
       },
       {
-        src: "/images/nuestra_lagrima/lagrima2.jpg",
+        src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima2.jpg`,
+        poem: "...",
       },
       {
-        src: "/images/nuestra_lagrima/lagrima3.jpg",
+        src: `${import.meta.env.BASE_URL}images/nuestra_lagrima/lagrima3.jpg`,
+        poem: "...",
       },
     ],
   },

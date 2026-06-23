@@ -6,10 +6,7 @@ export default function Bio() {
       <p className="text-sm text-gray-400 mb-2">BIO</p>
       <h2 className="text-3xl mb-6">Andres Preciado</h2>
 
-      <img
-        src="/images/bio.jpg"
-        className="w-full max-w-2xl mb-8"
-      />
+      <img src={`${import.meta.env.BASE_URL}images/bio.jpg`} className="w-full max-w-2xl mb-8" />
 
       <div className="max-w-2xl space-y-4 text-gray-700">
         <p>
