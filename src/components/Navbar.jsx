@@ -9,13 +9,12 @@ export default function Navbar() {
   if (location.pathname === "/") return null;
 
   return (
-    <nav className="relative flex items-center justify-between px-10 py-8 font-mono">
-      <Link to="/">
+    <nav className="relative flex items-center justify-end px-10 py-8 font-mono">
+      <Link to="/" className="absolute left-1/2 -translate-x-1/2">
         <h1 className="text-2xl text-black-400">Andres Preciado</h1>
       </Link>
 
       <div className="relative flex items-center">
-        {/* Desktop: menu spills out to the left of the button */}
         <div
           className={`hidden md:flex items-center gap-6 text-lg text-black-400 mr-6 transition-all duration-300 ${
             open
@@ -34,26 +33,36 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Hamburger / X button - visible on all screen sizes */}
         <button
           onClick={() => setOpen(!open)}
-          className="relative w-6 h-5 flex flex-col justify-between cursor-pointer focus:outline-none z-50"
+          className="relative w-6 h-4 cursor-pointer focus:outline-none z-50"
           aria-label="Menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-gray-400 transition-all duration-300 origin-center ${
-              open ? "rotate-45 translate-y-[9px]" : ""
-            }`}
+            className="absolute bg-gray-400 transition-all duration-300"
+            style={{
+              width: open ? "2px" : "24px",
+              height: "2px",
+              top: open ? "1px" : "0px",
+              left: open ? "9px" : "0px",
+              transform: open ? "rotate(90deg) translateX(2px)" : "none",
+              transformOrigin: "center",
+            }}
           ></span>
           <span
-            className={`block w-6 h-0.5 bg-gray-400 transition-all duration-300 origin-center ${
-              open ? "-rotate-45 -translate-y-[1px]" : ""
-            }`}
+            className="absolute bg-gray-400 transition-all duration-300"
+            style={{
+              width: open ? "2px" : "24px",
+              height: "2px",
+              top: open ? "1px" : "14px",
+              left: open ? "9px" : "0px",
+              transform: open ? "rotate(90deg) translateX(-2px)" : "none",
+              transformOrigin: "center",
+            }}
           ></span>
         </button>
       </div>
 
-      {/* Mobile: curtain-style dropdown overlay */}
       <div
         className={`md:hidden fixed top-0 left-0 w-full bg-white/70 backdrop-blur-sm flex flex-col items-center justify-center gap-8 text-lg text-black-400 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
           open ? "h-screen opacity-100" : "h-0 opacity-0"

@@ -1,5 +1,6 @@
 // src/pages/WorkDetail.jsx
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { projects } from "../data/projects";
 
 export default function WorkDetail() {
@@ -7,6 +8,14 @@ export default function WorkDetail() {
   const navigate = useNavigate();
   const project = projects.find((p) => p.slug === slug);
   const i = parseInt(index);
+
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    setVisible(false);
+    const t = setTimeout(() => setVisible(true), 30);
+    return () => clearTimeout(t);
+  }, [i]);
 
   if (!project) return <div className="px-10">Project not found.</div>;
 
@@ -34,7 +43,14 @@ export default function WorkDetail() {
         </button>
 
         <div className="relative flex-1">
-          <img src={current.src} className="w-full" loading="eager" decoding="async" />
+          <img
+            src={current.src}
+            className={`w-full transition-opacity duration-300 ease-in-out ${
+              visible ? "opacity-100" : "opacity-0"
+            }`}
+            loading="eager"
+            decoding="async"
+          />
         </div>
 
         <button
