@@ -1,19 +1,18 @@
 // src/pages/WorkDetail.jsx
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { projects } from "../data/projects";
 
 export default function WorkDetail() {
-  const { slug, index } = useParams();
-  const navigate = useNavigate();
+  const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
-  const i = parseInt(index);
 
+  const [i, setI] = useState(0);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     setVisible(false);
-    const t = setTimeout(() => setVisible(true), 30);
+    const t = setTimeout(() => setVisible(true), 60);
     return () => clearTimeout(t);
   }, [i]);
 
@@ -25,7 +24,7 @@ export default function WorkDetail() {
 
   const goTo = (newIndex) => {
     if (newIndex >= 0 && newIndex < project.images.length) {
-      navigate(`/works/${project.slug}/${newIndex}`);
+      setI(newIndex);
     }
   };
 
@@ -45,7 +44,7 @@ export default function WorkDetail() {
         <div className="relative flex-1">
           <img
             src={current.src}
-            className={`w-full transition-opacity duration-300 ease-in-out ${
+            className={`w-full transition-opacity duration-700 ease-in-out ${
               visible ? "opacity-100" : "opacity-0"
             }`}
             loading="eager"

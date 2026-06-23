@@ -7,7 +7,7 @@ export default function WorkGrid() {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 sm:px-10">
       {projects.map((project) => (
         <Link
-          to={`/works/${project.slug}/0`}
+          to={`/works/${project.slug}`}
           key={project.slug}
           className="relative block focus:outline-none"
         >

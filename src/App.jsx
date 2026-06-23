@@ -29,7 +29,7 @@ function App() {
         <Route path="/works" element={<Works />} />
         <Route path="/bio" element={<Bio />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/works/:slug/:index" element={<WorkDetail />} />
+        <Route path="/works/:slug" element={<WorkDetail />} />
       </Routes>
     </BrowserRouter>
   );
