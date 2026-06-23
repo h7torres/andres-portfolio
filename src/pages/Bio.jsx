@@ -5,7 +5,6 @@ export default function Bio() {
     <div className="w-full flex flex-col items-center px-10">
       <div className="w-full max-w-2xl mx-auto font-mono">
         <p className="text-sm text-gray-400 mb-2">BIO</p>
-        <h2 className="text-3xl mb-6">Andres Preciado</h2>
 
         <img
           src={`${import.meta.env.BASE_URL}images/bio.jpg`}

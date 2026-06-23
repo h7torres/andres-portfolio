@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const location = useLocation();
+
+  if (location.pathname === "/") return null;
+
   return (
     <nav className="relative flex items-center justify-center px-10 py-8 font-mono">
       <Link to="/">
