@@ -22,28 +22,30 @@ export default function WorkDetail() {
 
   return (
     <div className="w-full flex flex-col items-center px-10">
-      <div className="relative w-full max-w-2xl mx-auto group">
-        <img src={current.src} className="w-full" loading="eager" decoding="async" />
+      <div className="flex items-center gap-3 w-full max-w-2xl mx-auto">
+        <button
+          onClick={() => goTo(i - 1)}
+          className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${
+            hasPrev ? "visible" : "invisible"
+          }`}
+          aria-label="Previous"
+        >
+          ‹
+        </button>
 
-        {hasPrev && (
-          <button
-            onClick={() => goTo(i - 1)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors"
-            aria-label="Previous"
-          >
-            ‹
-          </button>
-        )}
+        <div className="relative flex-1">
+          <img src={current.src} className="w-full" loading="eager" decoding="async" />
+        </div>
 
-        {hasNext && (
-          <button
-            onClick={() => goTo(i + 1)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors"
-            aria-label="Next"
-          >
-            ›
-          </button>
-        )}
+        <button
+          onClick={() => goTo(i + 1)}
+          className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${
+            hasNext ? "visible" : "invisible"
+          }`}
+          aria-label="Next"
+        >
+          ›
+        </button>
       </div>
 
       <div className="w-full max-w-2xl mx-auto">
