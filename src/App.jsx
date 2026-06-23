@@ -12,14 +12,12 @@ function Contact() {
   return (
     <div className="px-10 mt-32 text-center text-lg font-mono">
       <p>
-        For direct email contact :{" "}
         <a href="mailto:preciaan@bc.edu" className="text-blue-400 underline">
-          preciaan@bc.edu
+          Email
         </a>
       </p>
       <p>
-        Instagram :{" "}
-        <a href="https://instagram.com/mr.ap123" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">mr.ap123</a>
+        <a href="https://instagram.com/mr.ap123" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">Instagram</a>
       </p>
     </div>
   );

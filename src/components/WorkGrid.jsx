@@ -9,11 +9,11 @@ export default function WorkGrid() {
         <Link
           to={`/works/${project.slug}/0`}
           key={project.slug}
-          className="relative block overflow-hidden"
+          className="relative block focus:outline-none"
         >
           <img
             src={project.images[0].src}
-            className="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-110 hover:z-10 relative"
             loading="lazy"
           />
         </Link>
