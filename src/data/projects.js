@@ -14,7 +14,7 @@ export const projects = [
   {
     slug: "frontera",
     title: "La Frontera",
-    collaborators: "In Collaboratioon with Hernany Torres and Sanchez Productions", // leave empty string if solo work, or fill in like above
+    collaborators: "In collaboration with Hernany Torres and Sanchez Productions.",
     description: "A triptych on the identities we carry.",
     year: "2024.",
     images: [

@@ -10,7 +10,7 @@ export default function FadeImage({ src, className, alt = "", clip = true, ...pr
         src={src}
         alt={alt}
         onLoad={() => setLoaded(true)}
-        className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+        className={`w-full h-full object-cover transition-opacity duration-[1400ms] ease-in-out ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         {...props}

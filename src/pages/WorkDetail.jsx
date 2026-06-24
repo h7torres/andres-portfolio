@@ -51,21 +51,21 @@ export default function WorkDetail() {
         <p className="text-gray-500 mb-4 font-mono mt-4 text-xs">{project.year}</p>
       </div>
 
-      <div className="w-full max-w-4xl mx-auto flex justify-between items-center mt-16 font-mono text-sm">
+      <div className="w-full max-w-4xl mx-auto flex justify-between items-center mt-32 pt-6 border-t border-gray-100 font-mono text-xs text-gray-400">
         {prevProject ? (
-          <Link to={`/works/${prevProject.slug}`} className="flex items-center gap-2 text-gray-400 hover:text-gray-300 transition-colors focus:outline-none">
-            <span className="text-base">‹</span><span>{prevProject.title}</span>
+          <Link to={`/works/${prevProject.slug}`} className="flex items-center gap-2 hover:text-gray-600 transition-colors focus:outline-none">
+            <span>←</span><span>{prevProject.title}</span>
           </Link>
         ) : (
-          <span className="flex items-center gap-2 text-gray-300"><span>‹</span></span>
+          <span className="flex items-center gap-2 text-gray-200"><span>←</span></span>
         )}
 
         {nextProject ? (
-          <Link to={`/works/${nextProject.slug}`} className="flex items-center gap-2 text-gray-400 hover:text-gray-300 transition-colors focus:outline-none">
-            <span>{nextProject.title}</span><span className="text-base">›</span>
+          <Link to={`/works/${nextProject.slug}`} className="flex items-center gap-2 hover:text-gray-600 transition-colors focus:outline-none">
+            <span>{nextProject.title}</span><span>→</span>
           </Link>
         ) : (
-          <span className="flex items-center gap-2 text-gray-300"><span>›</span></span>
+          <span className="flex items-center gap-2 text-gray-200"><span>→</span></span>
         )}
       </div>
     </div>
