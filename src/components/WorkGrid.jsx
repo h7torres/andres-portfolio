@@ -1,6 +1,7 @@
 // src/components/WorkGrid.jsx
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import FadeImage from "./FadeImage";
 
 export default function WorkGrid() {
   return (
@@ -11,9 +12,11 @@ export default function WorkGrid() {
           key={project.slug}
           className="relative block focus:outline-none"
         >
-          <img
+          <FadeImage
             src={project.images[0].src}
-            className="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-110 hover:z-10 relative"
+            alt={project.title}
+            clip={false}
+            className="aspect-[4/5] transition-transform duration-300 ease-out hover:scale-110 hover:z-10"
             loading="lazy"
           />
         </Link>

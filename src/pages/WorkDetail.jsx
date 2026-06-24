@@ -2,19 +2,21 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { projects } from "../data/projects";
+import FadeImage from "../components/FadeImage";
 
 export default function WorkDetail() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
 
   const [i, setI] = useState(0);
-  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    setVisible(false);
-    const t = setTimeout(() => setVisible(true), 60);
-    return () => clearTimeout(t);
-  }, [i]);
+    if (!project) return;
+    project.images.forEach((img) => {
+      const preload = new Image();
+      preload.src = img.src;
+    });
+  }, [project]);
 
   if (!project) return <div className="px-10">Project not found.</div>;
 
@@ -42,14 +44,7 @@ export default function WorkDetail() {
         </button>
 
         <div className="relative flex-1">
-          <img
-            src={current.src}
-            className={`w-full transition-opacity duration-700 ease-in-out ${
-              visible ? "opacity-100" : "opacity-0"
-            }`}
-            loading="eager"
-            decoding="async"
-          />
+          <FadeImage key={current.src} src={current.src} alt={project.title} clip={false} loading="eager" />
         </div>
 
         <button
@@ -65,12 +60,8 @@ export default function WorkDetail() {
 
       <div className="w-full max-w-2xl mx-auto">
         <h2 className="text-2xl mt-8 font-mono">{project.title}</h2>
-        {project.collaborators && (
-          <p className="text-gray-500 font-mono mt-6 text-xs">{project.collaborators}</p>
-        )}
-        {project.description && (
-          <p className="text-gray-500 font-mono mt-4 text-xs">{project.description}</p>
-        )}
+        {project.collaborators && <p className="text-gray-500 font-mono mt-6 text-xs">{project.collaborators}</p>}
+        {project.description && <p className="text-gray-500 font-mono mt-4 text-xs">{project.description}</p>}
         <p className="text-gray-500 mb-4 font-mono mt-4 text-xs">{project.year}</p>
       </div>
     </div>

@@ -4,18 +4,13 @@ import Landing from "./pages/Landing";
 import Works from "./pages/Works";
 import Navbar from "./components/Navbar";
 import WorkDetail from "./pages/WorkDetail";
+import NotFound from "./pages/NotFound";
 
 function Contact() {
   return (
     <div className="px-10 mt-32 text-center text-lg font-mono">
-      <p>
-        <a href="mailto:preciaan@bc.edu" className="text-blue-400 underline">
-          Email
-        </a>
-      </p>
-      <p>
-        <a href="https://instagram.com/mr.ap123" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">Instagram</a>
-      </p>
+      <p><a href="mailto:preciaan@bc.edu" className="text-blue-400 underline">Email</a></p>
+      <p><a href="https://instagram.com/mr.ap123" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">Instagram</a></p>
     </div>
   );
 }
@@ -30,6 +25,7 @@ function App() {
         <Route path="/bio" element={<Bio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/works/:slug" element={<WorkDetail />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
