@@ -18,12 +18,12 @@ export default function Contact() {
   return (
     <div className="w-full flex flex-col items-center px-10">
       <div className="w-full max-w-2xl mx-auto font-mono text-center">
-        <p className="text-sm text-gray-400 mb-2">CONTACT</p>
+        <p className="text-sm text-gray-400 mb-10">CONTACT</p>
         <div className="space-y-2 text-gray-700 text-sm">
           <p><InlineLink href="mailto:preciaan@bc.edu">Email</InlineLink></p>
           <p><InlineLink href="https://instagram.com/mr.ap123" external>Instagram</InlineLink></p>
         </div>
-        <p className="text-gray-400 text-xs mt-10">
+        <p className="text-gray-400 text-xs mt-16">
           Based between San Ysidro, California and Boston, Massachusetts.
         </p>
       </div>
