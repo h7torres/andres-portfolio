@@ -1,16 +1,18 @@
 // src/pages/Contact.jsx
 import { createElement } from "react";
 
-function InlineLink({ href, children, external }) {
+function ContactLink({ href, label, external }) {
   return createElement(
     "a",
     {
       href,
       target: external ? "_blank" : undefined,
       rel: external ? "noopener noreferrer" : undefined,
-      className: "underline hover:text-gray-500 transition-colors",
+      className:
+        "flex items-center justify-between border border-gray-200 rounded-2xl px-5 py-4 text-sm text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-colors focus:outline-none",
     },
-    children
+    createElement("span", null, label),
+    createElement("span", { className: "text-gray-400" }, "\u2197")
   );
 }
 
@@ -19,17 +21,14 @@ export default function Contact() {
     <div className="w-full flex flex-col items-center px-10">
       <div className="w-full max-w-2xl mx-auto font-mono">
         <p className="text-sm text-gray-400 mb-2">CONTACT</p>
-        <p className="text-gray-700 text-sm mb-10">
-          For collaborations, commissions, press, or just to talk about the work
-          &mdash; reach out by{" "}
-          <InlineLink href="mailto:preciaan@bc.edu">Email</InlineLink>
-          , or find me on{" "}
-          <InlineLink href="https://instagram.com/mr.ap123" external>
-            Instagram
-          </InlineLink>
-          .
-        </p>
-
+        <div className="space-y-3">
+          <ContactLink href="mailto:preciaan@bc.edu" label="Email" />
+          <ContactLink
+            href="https://instagram.com/mr.ap123"
+            label="Instagram"
+            external
+          />
+        </div>
         <p className="text-gray-400 text-xs mt-10">
           Based between San Ysidro, California and Boston, Massachusetts.
         </p>
