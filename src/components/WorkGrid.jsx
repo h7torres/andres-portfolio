@@ -5,7 +5,7 @@ import FadeImage from "./FadeImage";
 
 export default function WorkGrid() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 sm:px-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 sm:px-10 max-w-5xl mx-auto">
       {projects.map((project) => (
         <Link
           to={`/works/${project.slug}`}
