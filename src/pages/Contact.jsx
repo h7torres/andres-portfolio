@@ -26,10 +26,6 @@ export default function Contact() {
     <div className="w-full flex flex-col items-center px-10">
       <div className="w-full max-w-2xl mx-auto font-mono">
         <p className="text-sm text-gray-400 mb-2">CONTACT</p>
-        <p className="text-gray-700 text-sm mb-10">
-          For collaborations, commissions, press, or just to talk about the work
-          &mdash; reach out below.
-        </p>
         <div className="space-y-3">
           <ContactLink
             href="mailto:preciaan@bc.edu"
