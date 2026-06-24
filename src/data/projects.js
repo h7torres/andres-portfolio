@@ -23,4 +23,15 @@ export const projects = [
       { src: `${import.meta.env.BASE_URL}images/frontera/frontera3.jpg` },
     ],
   },
+  {
+    slug: "rancho",
+    title: "Rancho E Mi Apa",
+    description: "A polyptych on the ranches that watched us grow.",
+    year: "2024.",
+    images: [
+      { src: `${import.meta.env.BASE_URL}images/rancho/rancho.jpg` }
+      //{ src: `${import.meta.env.BASE_URL}images/frontera/frontera2.jpg` },
+      //{ src: `${import.meta.env.BASE_URL}images/frontera/frontera3.jpg` },
+    ],
+  },
 ];
