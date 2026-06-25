@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { projects } from "../data/projects";
-import FadeImage from "./FadeImage";
+import CrossfadeImage from "./CrossfadeImage";
 
 export default function MobileWorksCarousel() {
   const [index, setIndex] = useState(0);
@@ -24,11 +24,9 @@ export default function MobileWorksCarousel() {
         </button>
 
         <Link to={`/works/${project.slug}`} className="flex-1 focus:outline-none">
-          <FadeImage
-            key={project.slug}
+          <CrossfadeImage
             src={project.images[0].src}
             alt={project.title}
-            clip={false}
             fit="contain"
             className="w-full h-80"
             loading="eager"

@@ -2,7 +2,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { projects } from "../data/projects";
-import FadeImage from "../components/FadeImage";
+import CrossfadeImage from "../components/CrossfadeImage";
 
 export default function WorkDetail() {
   const { slug } = useParams();
@@ -39,7 +39,7 @@ export default function WorkDetail() {
       <div className="flex items-center gap-3 w-full max-w-2xl mx-auto">
         <button onClick={() => goTo(i - 1)} className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${hasPrev ? "visible" : "invisible"}`} aria-label="Previous">‹</button>
         <div className="relative flex-1">
-          <FadeImage key={current.src} src={current.src} alt={project.title} clip={false} loading="eager" />
+          <CrossfadeImage src={current.src} alt={project.title} loading="eager" />
         </div>
         <button onClick={() => goTo(i + 1)} className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${hasNext ? "visible" : "invisible"}`} aria-label="Next">›</button>
       </div>

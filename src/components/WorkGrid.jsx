@@ -16,7 +16,7 @@ export default function WorkGrid() {
             src={project.images[0].src}
             alt={project.title}
             clip={false}
-            className="w-full transition-transform duration-300 ease-out hover:scale-125"
+            className="w-full transition-transform duration-300 ease-out hover:scale-105"
             loading="lazy"
           />
           <p className="mt-3 text-xs text-gray-400 font-mono">
