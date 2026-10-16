@@ -36,22 +36,29 @@ export default function WorkDetail() {
 
   return (
     <div className="w-full flex flex-col items-center px-10">
-      <div className="flex items-center gap-3 w-full max-w-2xl mx-auto">
-        <button onClick={() => goTo(i - 1)} className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${hasPrev ? "visible" : "invisible"}`} aria-label="Previous">‹</button>
-        <div className="relative flex-1">
-          <CrossfadeImage src={current.src} alt={project.title} loading="eager" />
+      <div className="relative w-full max-w-4xl mx-auto">
+        <Link to="/works" className="inline-flex items-center gap-2 mb-6 md:mb-0 md:absolute md:left-0 md:top-0 font-mono text-xs text-gray-400 hover:text-gray-600 transition-colors focus:outline-none">
+          <span>←</span><span>Works</span>
+        </Link>
+
+        <div className="flex items-center gap-3 w-full max-w-2xl mx-auto">
+          <button onClick={() => goTo(i - 1)} className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${hasPrev ? "visible" : "invisible"}`} aria-label="Previous">‹</button>
+          <div className="relative flex-1">
+            <CrossfadeImage src={current.src} alt={project.title} loading="eager" />
+          </div>
+          <button onClick={() => goTo(i + 1)} className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${hasNext ? "visible" : "invisible"}`} aria-label="Next">›</button>
         </div>
-        <button onClick={() => goTo(i + 1)} className={`text-2xl text-gray-400 hover:text-gray-600 cursor-pointer focus:outline-none transition-colors ${hasNext ? "visible" : "invisible"}`} aria-label="Next">›</button>
       </div>
 
-      <div className="w-full max-w-2xl mx-auto">
+      <div className="w-full max-w-2xl mx-auto mb-4">
         <h2 className="text-2xl mt-8 font-mono">{project.title}</h2>
         {project.collaborators && <p className="text-gray-500 font-mono mt-6 text-xs">{project.collaborators}</p>}
         {project.description && <p className="text-gray-500 font-mono mt-4 text-xs">{project.description}</p>}
-        <p className="text-gray-500 mb-4 font-mono mt-4 text-xs">{project.year}</p>
+        {project.year && <p className="text-gray-500 font-mono mt-4 text-xs">{project.year}</p>}
       </div>
 
-     <div className="w-full max-w-4xl mx-auto flex justify-between items-center mt-32 font-mono text-xs text-gray-400">        {prevProject ? (
+      <div className="w-full max-w-4xl mx-auto flex justify-between items-center mt-32 font-mono text-xs text-gray-400">
+        {prevProject ? (
           <Link to={`/works/${prevProject.slug}`} className="flex items-center gap-2 hover:text-gray-600 transition-colors focus:outline-none">
             <span>←</span><span>{prevProject.title}</span>
           </Link>

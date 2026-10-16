@@ -5,12 +5,12 @@ import FadeImage from "./FadeImage";
 
 export default function WorkGrid() {
   return (
-    <div className="hidden md:grid md:grid-cols-3 gap-4 md:gap-10 px-4 sm:px-10 max-w-5xl mx-auto">
+        <div className="hidden md:block md:columns-3 md:gap-8 px-4 sm:px-10 max-w-5xl mx-auto">
       {projects.map((project) => (
         <Link
           to={`/works/${project.slug}`}
           key={project.slug}
-          className="group relative block hover:z-20 focus:outline-none"
+          className="group relative block break-inside-avoid mb-8 hover:z-20 focus:outline-none"
         >
           <FadeImage
             src={project.images[0].src}
@@ -20,7 +20,7 @@ export default function WorkGrid() {
             loading="lazy"
           />
           <p className="mt-3 text-xs text-gray-400 font-mono">
-            {project.title}, {project.year}
+            {project.title}{project.year && `, ${project.year}`}
           </p>
         </Link>
       ))}

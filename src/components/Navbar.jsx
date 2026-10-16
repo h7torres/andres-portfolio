@@ -20,17 +20,13 @@ export default function Navbar() {
       </Link>
 
       <div className="relative flex items-center">
-        <div
-          className={`hidden md:flex items-center gap-6 text-sm text-black-400 mr-6 transition-all duration-300 ${
-            open ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 translate-x-4 pointer-events-none"
-          }`}
-        >
-          <Link to="/works" onClick={() => setOpen(false)} className={linkClass("/works")}>Works</Link>
-          <Link to="/bio" onClick={() => setOpen(false)} className={linkClass("/bio")}>Bio</Link>
-          <Link to="/contact" onClick={() => setOpen(false)} className={linkClass("/contact")}>Contact</Link>
+                <div className="hidden md:flex items-center gap-6 text-sm text-black-400">
+          <Link to="/works" className={linkClass("/works")}>Works</Link>
+          <Link to="/bio" className={linkClass("/bio")}>Bio</Link>
+          <Link to="/contact" className={linkClass("/contact")}>Contact</Link>
         </div>
 
-        <button onClick={() => setOpen(!open)} className="relative w-6 h-4 cursor-pointer focus:outline-none z-50" aria-label="Menu">
+        <button onClick={() => setOpen(!open)} className="md:hidden relative w-6 h-4 cursor-pointer focus:outline-none z-50" aria-label="Menu">
           <span className="absolute bg-gray-400 transition-all duration-300 ease-in-out" style={{ width: open ? "2px" : "24px", height: open ? "16px" : "2px", top: "0px", left: open ? "7px" : "0px" }}></span>
           <span className="absolute bg-gray-400 transition-all duration-300 ease-in-out" style={{ width: open ? "2px" : "24px", height: open ? "16px" : "2px", top: open ? "0px" : "14px", left: open ? "15px" : "0px" }}></span>
         </button>

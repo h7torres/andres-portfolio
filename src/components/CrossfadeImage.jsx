@@ -1,8 +1,16 @@
 // src/components/CrossfadeImage.jsx
 import { useEffect, useRef, useState } from "react";
 
+// True when the browser already has this image (e.g. you just saw it on the grid)
+const isCached = (src) => {
+  const img = new Image();
+  img.src = src;
+  return img.complete && img.naturalWidth > 0;
+};
+
 export default function CrossfadeImage({ src, alt = "", className = "", fit = "cover", ...props }) {
-  const [layers, setLayers] = useState([{ src, id: 0, entered: false }]);
+  // First image: show instantly if cached, otherwise fade in once it loads
+  const [layers, setLayers] = useState(() => [{ src, id: 0, entered: isCached(src) }]);
   const idRef = useRef(1);
   const fitClass = fit === "contain" ? "object-contain" : "object-cover";
 
@@ -15,26 +23,17 @@ export default function CrossfadeImage({ src, alt = "", className = "", fit = "c
     });
   }, [src]);
 
-  // Trigger the fade-in on the newest layer
-  useEffect(() => {
-    const top = layers[layers.length - 1];
-    if (!top.entered) {
-      const raf = requestAnimationFrame(() => {
-        setLayers((prev) =>
-          prev.map((l) => (l.id === top.id ? { ...l, entered: true } : l))
-        );
-      });
-      return () => cancelAnimationFrame(raf);
-    }
-  }, [layers]);
+  const enter = (id) =>
+    setLayers((prev) => prev.map((l) => (l.id === id ? { ...l, entered: true } : l)));
 
-  // Once the fade-in finishes, drop older layers underneath
+  // Once the top image has faded in, drop the older layers underneath
+  const top = layers[layers.length - 1];
   useEffect(() => {
-    if (layers.length > 1) {
-      const t = setTimeout(() => setLayers((prev) => prev.slice(-1)), 1300);
+    if (layers.length > 1 && top.entered) {
+      const t = setTimeout(() => setLayers((prev) => prev.slice(-1)), 500);
       return () => clearTimeout(t);
     }
-  }, [layers]);
+  }, [layers.length, top.entered]);
 
   return (
     <div className={`relative bg-white overflow-hidden grid ${className}`}>
@@ -44,10 +43,11 @@ export default function CrossfadeImage({ src, alt = "", className = "", fit = "c
           src={layer.src}
           alt={alt}
           loading="eager"
+          onLoad={() => enter(layer.id)}
           className={`w-full h-full ${fitClass} [grid-area:1/1]`}
           style={{
             opacity: layer.entered ? 1 : 0,
-            transition: "opacity 1100ms ease-in-out",
+            transition: "opacity 400ms ease-out",
           }}
           {...props}
         />
